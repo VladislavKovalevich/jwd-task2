@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.vlad.by/devices"
+        xmlns:tns ="http://www.vlad.by/devices"
+        elementFormDefault="qualified">
+
+    <element name="device" type="tns:AbstractDevice" abstract="true"/>
+    <element name="cpu-device" type="tns:CPUDevice" substitutionGroup="tns:device"/>
+    <element name="gpu-device" type="tns:GPUDevice" substitutionGroup="tns:device"/>
+
+    <element name="devices">
+        <complexType>
+            <sequence>
+                <element ref="tns:device"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <complexType name="AbstractDevice">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="origin" type="tns:CountryEnum"/>
+            <element name="price" type="double"/>
+            <element name="type" type="tns:DeviceTypeSet"/>
+            <element name="release-date" type="gYearMonth"/>
+        </sequence>
+
+        <attribute name="id" type="tns:device-ID" use="required"/>
+        <attribute name="critical" use="optional" type="boolean" default="true"/><!--придумать -->
+    </complexType>
+
+    <complexType name="CPUDevice">
+        <complexContent>
+            <extension base="tns:AbstractDevice">
+                <sequence>
+                    <element name="core-architecture" type="tns:CPUCoreArchitectureType"/>
+                    <element name="frequency" type="double"/>
+                    <element name="core-count" type="int"/>
+                    <element name="thread-count" type="int"/>
+                    <element name="cache-size" type="int"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="GPUDevice">
+        <complexContent>
+            <extension base="tns:AbstractDevice">
+                <sequence>
+                    <element name="architecture" type="tns:GPUArchitectureType"/>
+                    <element name="memory-type" type="tns:GPUMemoryType"/>
+                    <element name="memory-size" type="int"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="DeviceTypeSet">
+        <sequence>
+            <element name="device-type" type="tns:DeviceTypeEnum"/>
+            <element name="power-usage" type="double"/>
+            <element name="presence-of-cooler" type="boolean"/>
+            <element name="device-group" type="tns:DeviceGroupEnum"/>
+            <element name="port" type="tns:PortEnum"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="DeviceTypeEnum">
+        <restriction base="string">
+            <enumeration value="not a peripheral"/>
+            <enumeration value="peripheral"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="DeviceGroupEnum">
+        <restriction base="string">
+            <enumeration value="multimedia"/>
+            <enumeration value="I/O devices"/>
+            <enumeration value="processors"/>
+            <enumeration value="network hardware"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="PortEnum">
+        <restriction base="string">
+            <enumeration value="COM"/>
+            <enumeration value="USB"/>
+            <enumeration value="LPT"/>
+            <enumeration value="VGA"/>
+            <enumeration value="NONE"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="CountryEnum">
+        <restriction base="string">
+            <enumeration value="China"/>
+            <enumeration value="England"/>
+            <enumeration value="Russia"/>
+            <enumeration value="USA"/>
+            <enumeration value="France"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="GPUMemoryType">
+        <restriction base="string">
+            <enumeration value="DDR2"/>
+            <enumeration value="DDR3"/>
+            <enumeration value="GDDR3"/>
+            <enumeration value="GDDR5"/>
+            <enumeration value="GDDR5X"/>
+            <enumeration value="DDR"/>
+            <enumeration value="SDR"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="CPUCoreArchitectureType">
+        <restriction base="string">
+            <enumeration value="Sandy Bridge"/>
+            <enumeration value="Ivy Bridge"/>
+            <enumeration value="Broadwell"/>
+            <enumeration value="Skylake"/>
+            <enumeration value="Coffee Lake"/>
+            <enumeration value="Cooper Lake"/>
+            <enumeration value="Cannon Lake"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="GPUArchitectureType">
+        <restriction base="string">
+            <enumeration value="Ampere"/>
+            <enumeration value="Maxwell"/>
+            <enumeration value="Pascal"/>
+            <enumeration value="Turing"/>
+            <enumeration value="Kepler"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="device-ID">
+        <restriction base="ID">
+            <pattern value="\w{1,5}-\d{1,3}"/>
+        </restriction>
+    </simpleType>
+
+</schema>
