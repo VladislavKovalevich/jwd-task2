@@ -7,7 +7,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class DeviceErrorHandler implements ErrorHandler {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     private boolean isError = false;
 
     @Override

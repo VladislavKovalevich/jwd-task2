@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.time.YearMonth;
 
 public class DeviceDomBuilder extends AbstractDeviceBuilder {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     private DocumentBuilder docBuilder;
 
     public DeviceDomBuilder() {
@@ -32,7 +32,7 @@ public class DeviceDomBuilder extends AbstractDeviceBuilder {
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            logger.error("ParserConfigurationException during parser configuration", e);
         }
     }
 

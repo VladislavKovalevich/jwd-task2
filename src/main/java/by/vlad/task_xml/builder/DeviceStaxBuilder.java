@@ -8,6 +8,8 @@ import by.vlad.task_xml.entity.gpu_device.GPUDevice;
 import by.vlad.task_xml.entity.gpu_device.GPUMemoryType;
 import by.vlad.task_xml.handler.DeviceXmlAttribute;
 import by.vlad.task_xml.handler.DeviceXmlTag;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -20,6 +22,7 @@ import java.io.IOException;
 import java.time.YearMonth;
 
 public class DeviceStaxBuilder extends AbstractDeviceBuilder {
+    private static final Logger logger = LogManager.getLogger();
     private XMLInputFactory xmlInputFactory;
 
     public DeviceStaxBuilder() {
@@ -44,10 +47,13 @@ public class DeviceStaxBuilder extends AbstractDeviceBuilder {
                 }
             }
         } catch (FileNotFoundException e) {
+            logger.error("file " + filename + " is not found", e);
             e.printStackTrace();
         } catch (IOException e) {
+            logger.error("Error during read file content", e);
             e.printStackTrace();
         } catch (XMLStreamException e) {
+            logger.error("Error during parsing xml file", e);
             e.printStackTrace();
         }
     }

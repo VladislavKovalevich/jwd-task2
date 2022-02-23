@@ -21,6 +21,7 @@ public class DeviceBuilderFactory {
                 return new DeviceStaxBuilder();
             }
             default:{
+                //log
                 throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
             }
         }

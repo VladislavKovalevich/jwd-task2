@@ -51,8 +51,11 @@ public class CustomXmlValidatorImpl implements CustomXmlValidator {
                 return false;
             }
 
-        } catch (SAXException | IOException e) {
-            System.err.println(xmlPath + " is not correct or valid");
+        } catch (IOException e) {
+            logger.error("File path" + xmlPath + " is not correct or valid", e);
+            return false;
+        } catch (SAXException e){
+            logger.error("SAXException during validate process", e);
             return false;
         }
 
