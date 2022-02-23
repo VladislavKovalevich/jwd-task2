@@ -6,6 +6,7 @@ import by.vlad.task_xml.entity.device.*;
 import by.vlad.task_xml.entity.gpu_device.GPUArchitectureEnum;
 import by.vlad.task_xml.entity.gpu_device.GPUDevice;
 import by.vlad.task_xml.entity.gpu_device.GPUMemoryType;
+import by.vlad.task_xml.exception.CustomDeviceException;
 import by.vlad.task_xml.handler.DeviceXmlAttribute;
 import by.vlad.task_xml.handler.DeviceXmlTag;
 import org.apache.logging.log4j.LogManager;
@@ -37,7 +38,7 @@ public class DeviceDomBuilder extends AbstractDeviceBuilder {
     }
 
     @Override
-    public void buildSetDevices(String filename) {
+    public void buildSetDevices(String filename) throws CustomDeviceException {
         Document doc;
 
         try {
@@ -63,8 +64,10 @@ public class DeviceDomBuilder extends AbstractDeviceBuilder {
 
         } catch (IOException e){
             logger.error("IOException during work with file " + filename, e);
+            throw new CustomDeviceException("IOException during work with file " + filename, e);
         } catch (SAXException e) {
             logger.error("SAXException during build data set " + filename, e);
+            throw new CustomDeviceException("SAXException during build data set " + filename, e);
         }
     }
 

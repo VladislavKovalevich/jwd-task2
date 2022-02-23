@@ -1,6 +1,6 @@
 <devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns="http://www.vlad.by/devices"
-      xsi:schemaLocation="http://www.vlad.by/devices devices_schema.xsd">
+         xmlns="http://www.vlad.by/devices/test"
+         xsi:schemaLocation="http://www.vlad.by/devices/test devicesSchemaTest.xsd">
 
     <cpu-device id="index-23">
         <name>Intel Core i5-5200U</name>
@@ -8,12 +8,12 @@
         <price>600.0</price>
         <type>
             <device-type>not a peripheral</device-type>
-            <power-usage>15</power-usage>
+            <power-usage>15</power-usage
             <presence-of-cooler>false</presence-of-cooler>
             <device-group>processors</device-group>
             <port>NONE</port>
         </type>
-        <release-date>2015-02</release-date>
+        <release-date>2015-02</release-date
         <core-architecture>Broadwell</core-architecture>
         <frequency>2.2</frequency>
         <core-count>2</core-count>

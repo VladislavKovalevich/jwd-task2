@@ -1,5 +1,6 @@
 package by.vlad.task_xml.builder;
 
+import by.vlad.task_xml.exception.CustomDeviceException;
 import by.vlad.task_xml.handler.DeviceErrorHandler;
 import by.vlad.task_xml.handler.DeviceHandler;
 import org.apache.logging.log4j.LogManager;
@@ -34,13 +35,15 @@ public class DeviceSaxBuilder extends AbstractDeviceBuilder {
     }
 
     @Override
-    public void buildSetDevices(String filename) {
+    public void buildSetDevices(String filename) throws CustomDeviceException {
         try {
             reader.parse(filename);
         } catch (IOException e) {
             logger.error("IOException during work with data file", e);
+            throw new CustomDeviceException("IOException during work with data file", e);
         } catch(SAXException e) {
             logger.error("SAXException during xml file parsing", e);
+            throw new CustomDeviceException("SAXException during xml file parsing", e);
         }
 
         devices = deviceHandler.getDevices();

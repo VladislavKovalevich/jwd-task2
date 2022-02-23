@@ -134,7 +134,7 @@ public class Device {
         private DeviceGroupEnum deviceGroupEnum;
         private PortEnum portEnum;
 
-        DeviceTypeSet() {
+        public DeviceTypeSet() {
         }
 
         public DeviceTypeEnum getDeviceTypeEnum() {

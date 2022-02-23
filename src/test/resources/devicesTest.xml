@@ -1,6 +1,6 @@
 <devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns="http://www.vlad.by/devices"
-      xsi:schemaLocation="http://www.vlad.by/devices devices_schema.xsd">
+      xmlns="http://www.vlad.by/devices/test"
+      xsi:schemaLocation="http://www.vlad.by/devices/test devicesSchemaTest.xsd">
 
     <cpu-device id="index-23">
         <name>Intel Core i5-5200U</name>

@@ -1,6 +1,8 @@
 package by.vlad.task_xml.builder;
 
 public class DeviceBuilderFactory {
+    private static DeviceBuilderFactory instance;
+
     private enum TypeParser{
         SAX, STAX, DOM
     }
@@ -8,8 +10,16 @@ public class DeviceBuilderFactory {
     private DeviceBuilderFactory() {
     }
 
-    public static AbstractDeviceBuilder createDeviceBuilder(String typeParser){
+    public static DeviceBuilderFactory getInstance() {
+        if (instance == null){
+            instance = new DeviceBuilderFactory();
+        }
+        return instance;
+    }
+
+    public AbstractDeviceBuilder createDeviceBuilder(String typeParser) {
         TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
+
         switch (type){
             case DOM:{
                 return new DeviceDomBuilder();
@@ -21,7 +31,6 @@ public class DeviceBuilderFactory {
                 return new DeviceStaxBuilder();
             }
             default:{
-                //log
                 throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
             }
         }

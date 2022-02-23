@@ -6,6 +6,7 @@ import by.vlad.task_xml.entity.device.*;
 import by.vlad.task_xml.entity.gpu_device.GPUArchitectureEnum;
 import by.vlad.task_xml.entity.gpu_device.GPUDevice;
 import by.vlad.task_xml.entity.gpu_device.GPUMemoryType;
+import by.vlad.task_xml.exception.CustomDeviceException;
 import by.vlad.task_xml.handler.DeviceXmlAttribute;
 import by.vlad.task_xml.handler.DeviceXmlTag;
 import org.apache.logging.log4j.LogManager;
@@ -30,7 +31,7 @@ public class DeviceStaxBuilder extends AbstractDeviceBuilder {
     }
 
     @Override
-    public void buildSetDevices(String filename) {
+    public void buildSetDevices(String filename) throws CustomDeviceException {
         XMLStreamReader streamReader;
         String name;
 
@@ -48,13 +49,13 @@ public class DeviceStaxBuilder extends AbstractDeviceBuilder {
             }
         } catch (FileNotFoundException e) {
             logger.error("file " + filename + " is not found", e);
-            e.printStackTrace();
+            throw new CustomDeviceException("file " + filename + " is not found", e);
         } catch (IOException e) {
-            logger.error("Error during read file content", e);
-            e.printStackTrace();
+            logger.error("IOException during read file content", e);
+            throw new CustomDeviceException("IOException during read file content", e);
         } catch (XMLStreamException e) {
-            logger.error("Error during parsing xml file", e);
-            e.printStackTrace();
+            logger.error("XMLStreamException during parsing xml file", e);
+            throw new CustomDeviceException("Error during read file content", e);
         }
     }
 

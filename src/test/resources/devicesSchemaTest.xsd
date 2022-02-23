@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.vlad.by/devices"
-        xmlns:tns ="http://www.vlad.by/devices"
-        elementFormDefault="qualified">
+            targetNamespace="http://www.vlad.by/devices/test"
+            xmlns:tns="http://www.vlad.by/devices/test"
+            elementFormDefault="qualified">
 
     <element name="device" type="tns:AbstractDevice" abstract="true"/>
     <element name="cpu-device" type="tns:CPUDevice" substitutionGroup="tns:device"/>

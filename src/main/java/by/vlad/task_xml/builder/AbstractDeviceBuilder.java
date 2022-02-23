@@ -1,6 +1,7 @@
 package by.vlad.task_xml.builder;
 
 import by.vlad.task_xml.entity.device.Device;
+import by.vlad.task_xml.exception.CustomDeviceException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,5 +21,5 @@ public abstract class AbstractDeviceBuilder {
         return devices;
     }
 
-    public abstract void buildSetDevices(String filename);
+    public abstract void buildSetDevices(String filename) throws CustomDeviceException;
 }
