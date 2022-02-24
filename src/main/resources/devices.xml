@@ -37,4 +37,112 @@
         <memory-type>GDDR5</memory-type>
         <memory-size>3</memory-size>
     </gpu-device>
+
+    <gpu-device id="index-11">
+        <name>GeForce GTX 1060</name>
+        <origin>USA</origin>
+        <price>940.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>120</power-usage>
+            <presence-of-cooler>true</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>VGA</port>
+        </type>
+        <release-date>2016-09</release-date>
+        <architecture>Pascal</architecture>
+        <memory-type>GDDR5</memory-type>
+        <memory-size>6</memory-size>
+    </gpu-device>
+
+    <gpu-device id="index-10">
+        <name>GeForce GTX 960M</name>
+        <origin>USA</origin>
+        <price>940.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>75</power-usage>
+            <presence-of-cooler>true</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>VGA</port>
+        </type>
+        <release-date>2015-04</release-date>
+        <architecture>Maxwell</architecture>
+        <memory-type>GDDR5</memory-type>
+        <memory-size>2</memory-size>
+    </gpu-device>
+
+    <gpu-device id="index-29">
+        <name>GeForce RTX 2060</name>
+        <origin>USA</origin>
+        <price>1050.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>160</power-usage>
+            <presence-of-cooler>true</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>VGA</port>
+        </type>
+        <release-date>2019-01</release-date>
+        <architecture>Turing</architecture>
+        <memory-type>GDDR5X</memory-type>
+        <memory-size>2</memory-size>
+    </gpu-device>
+
+    <cpu-device id="index-96">
+        <name>Intel Core i5-6400</name>
+        <origin>USA</origin>
+        <price>700.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>35</power-usage>
+            <presence-of-cooler>false</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>NONE</port>
+        </type>
+        <release-date>2015-02</release-date>
+        <core-architecture>Skylake</core-architecture>
+        <frequency>2.7</frequency>
+        <core-count>4</core-count>
+        <thread-count>4</thread-count>
+        <cache-size>6</cache-size>
+    </cpu-device>
+
+    <cpu-device id="index-55">
+        <name>Intel Core i5-6400</name>
+        <origin>USA</origin>
+        <price>700.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>35</power-usage>
+            <presence-of-cooler>false</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>NONE</port>
+        </type>
+        <release-date>2014-05</release-date>
+        <core-architecture>Skylake</core-architecture>
+        <frequency>2.7</frequency>
+        <core-count>4</core-count>
+        <thread-count>4</thread-count>
+        <cache-size>6</cache-size>
+    </cpu-device>
+
+    <cpu-device id="index-09">
+        <name>Intel Core i7-3520M</name>
+        <origin>USA</origin>
+        <price>700.0</price>
+        <type>
+            <device-type>not a peripheral</device-type>
+            <power-usage>35</power-usage>
+            <presence-of-cooler>false</presence-of-cooler>
+            <device-group>processors</device-group>
+            <port>NONE</port>
+        </type>
+        <release-date>2016-11</release-date>
+        <core-architecture>Ivy Bridge</core-architecture>
+        <frequency>2.5</frequency>
+        <core-count>2</core-count>
+        <thread-count>4</thread-count>
+        <cache-size>4</cache-size>
+    </cpu-device>
 </devices>
